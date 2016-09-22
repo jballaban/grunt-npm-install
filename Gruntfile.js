@@ -43,11 +43,6 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
 
-  grunt.registerTask('chdir', 'Change the cwd.', function (path) {
-    console.log('*** Current: ', process.cwd(), ' *** Next: ', path);
-    process.chdir(path);
-  });
-
   grunt.registerTask('write', 'Write content to a file.', grunt.file.write);
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
@@ -55,11 +50,7 @@ module.exports = function (grunt) {
   grunt.registerTask('test', [
     'clean',
     'write:tmp/package.json:{"name"\\: "fake", "dependencies"\\: {"jassi"\\:""}}',
-    'chdir:tmp',
-    'npm-install',
-    'npm-install:q',
-    'npm-install:lodash:async',
-    'chdir:' + process.cwd().replace(/[A-Za-z]:\\/, '/'), // Windows friendly
+    'npm-install:tmp',
     'nodeunit'
   ]);
 

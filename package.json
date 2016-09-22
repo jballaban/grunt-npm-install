@@ -1,26 +1,17 @@
 {
-  "name": "grunt-npm-install",
-  "description": "Grunt task to install npm modules.",
-  "version": "0.3.1",
-  "homepage": "https://github.com/iclanzan/grunt-npm-install",
-  "author": {
-    "name": "Sorin Iclanzan",
-    "email": "sorin@iclanzan.com",
-    "url": "http://iclanzan.com"
-  },
+  "name": "grunt-npm-install-2",
+  "description": "Grunt task to install npm modules with multiple folders",
+  "version": "0.3.2",
+  "homepage": "https://github.com/jballaban/grunt-npm-install",
+  "author": "jballaban",
   "repository": {
     "type": "git",
-    "url": "https://github.com/iclanzan/grunt-npm-install.git"
+    "url": "https://github.com/jballaban/grunt-npm-install.git"
   },
   "bugs": {
-    "url": "https://github.com/iclanzan/grunt-npm-install/issues"
+    "url": "https://github.com/jballaban/grunt-npm-install/issues"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/iclanzan/grunt-npm-install/blob/master/LICENSE-MIT"
-    }
-  ],
+  "licenses": "MIT",
   "main": "Gruntfile.js",
   "engines": {
     "node": ">= 0.8.0"

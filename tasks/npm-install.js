@@ -11,8 +11,16 @@
 module.exports = function (grunt) {
   var npm = require('npm');
 
-  grunt.registerTask('npm-install', 'Install npm modules.', function () {
-    var modules = Array.prototype.slice.call(arguments);
+  grunt.registerTask('npm-installs', 'Install and update npm modules at multiple locations', function() {
+    var folders = this.options().folders || [''];
+    for (var i in folders)
+      grunt.task.run('npm-install:'+folders[i]);
+  })
+
+  grunt.registerTask('npm-install', 'Install and update npm modules at specified location', function (cwd) {
+    
+    console.log('\nnpm-install '+cwd)
+    
     var done = this.async();
 
     function errorHandler(err) {
@@ -27,8 +35,8 @@ module.exports = function (grunt) {
         grunt.log.error(err);
         return;
       }
-
-      npm.commands.install(modules, errorHandler);
+      npm.prefix = cwd;
+      npm.commands.install([], errorHandler);
     });
   });
 };
